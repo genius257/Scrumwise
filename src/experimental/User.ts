@@ -9,7 +9,7 @@ export default class User {
   }
 
   public static assertValidId(value: string): asserts value is UserId {
-    if (this.isValidId) {
+    if (this.isValidId()) {
       throw new Error(`input "${value}" is not a valid user reference`);
     }
   }
