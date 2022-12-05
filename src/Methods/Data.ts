@@ -18,6 +18,7 @@ import { RetrospectiveCard } from "../Objects/RetrospectiveCard";
 import { Sprint } from "../Objects/Sprint";
 import { Task } from "../Objects/Task";
 import { TimeEntry } from "../Objects/TimeEntry";
+import { IObject } from "../Object";
 
 export type ProjectIDs = Opaque<string, "ProjectIDs">;
 
@@ -70,6 +71,11 @@ export default class Data {
   }
 }
 
+type OptionalProperties<
+  Object extends IObject,
+  Keys extends Exclude<keyof Object, symbol>
+> = `${Object["objectType"]}.${Extract<keyof Object, Keys>}`;
+
 type IncludeProperties = Array<IncludeProperty>; //FIXME: would be nice if it could be indicated as unique, without doing too much ts check computation. Alternative is to make it an object where the keys are the string values.
 type IncludeProperty =
   | OptionalBacklogItemPropertyValues
@@ -84,10 +90,8 @@ type IncludeProperty =
   | OptionalTaskPropertyValues
   | OptionalTimeEntryPropertyValues;
 
-type OptionalBacklogItemPropertyValues =
-  `${BacklogItem["objectType"]}.${OptionalBacklogItemProperties}`;
-type OptionalBacklogItemProperties = Extract<
-  keyof BacklogItem,
+type OptionalBacklogItemPropertyValues = OptionalProperties<
+  BacklogItem,
   | "customFieldValues"
   | "checklists"
   | "comments"
@@ -95,30 +99,22 @@ type OptionalBacklogItemProperties = Extract<
   | "timeEntries"
   | "commits"
   | "tasks"
->; //FIXME: define the stings in a way that will trigger a ts error, if a property is later removed (string extends keyof X)
+>;
 
-type OptionalDataPropertyValues =
-  `${DataObject["objectType"]}.${OptionalDataProperties}`;
-type OptionalDataProperties = Extract<
-  keyof DataObject,
+type OptionalDataPropertyValues = OptionalProperties<
+  DataObject,
   "persons" | "deletedPersons"
 >;
 
-type OptionalFilePropertyValues =
-  `${File["objectType"]}.${OptionalFileProperties}`;
-type OptionalFileProperties = Extract<keyof File, "comments">;
+type OptionalFilePropertyValues = OptionalProperties<File, "comments">;
 
-type OptionalMessagePropertyValues =
-  `${Message["objectType"]}.${OptionalMessageProperties}`;
-type OptionalMessageProperties = Extract<
-  keyof Message,
+type OptionalMessagePropertyValues = OptionalProperties<
+  Message,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalProjectPropertyValues =
-  `${Project["objectType"]}.${OptionalProjectProperties}`;
-type OptionalProjectProperties = Extract<
-  keyof Project,
+type OptionalProjectPropertyValues = OptionalProperties<
+  Project,
   | "checklists"
   | "comments"
   | "attachments"
@@ -136,38 +132,28 @@ type OptionalProjectProperties = Extract<
   | "relationships"
 >;
 
-type OptionalReleasePropertyValues =
-  `${Release["objectType"]}.${OptionalReleaseProperties}`;
-type OptionalReleaseProperties = Extract<
-  keyof Release,
+type OptionalReleasePropertyValues = OptionalProperties<
+  Release,
   "customFieldValues" | "checklists" | "comments" | "attachments"
 >;
 
-type OptionalRetrospectivePropertyValues =
-  `${Retrospective["objectType"]}.${OptionalRetrospectiveProperties}`;
-type OptionalRetrospectiveProperties = Extract<
-  keyof Retrospective,
+type OptionalRetrospectivePropertyValues = OptionalProperties<
+  Retrospective,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalRetrospectiveCardPropertyValues =
-  `${RetrospectiveCard["objectType"]}.${OptionalRetrospectiveCardProperties}`;
-type OptionalRetrospectiveCardProperties = Extract<
-  keyof RetrospectiveCard,
+type OptionalRetrospectiveCardPropertyValues = OptionalProperties<
+  RetrospectiveCard,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalSprintPropertyValues =
-  `${Sprint["objectType"]}.${OptionalSprintProperties}`;
-type OptionalSprintProperties = Extract<
-  keyof Sprint,
+type OptionalSprintPropertyValues = OptionalProperties<
+  Sprint,
   "customFieldValues" | "checklists" | "comments" | "attachments"
 >;
 
-type OptionalTaskPropertyValues =
-  `${Task["objectType"]}.${OptionalTaskProperties}`;
-type OptionalTaskProperties = Extract<
-  keyof Task,
+type OptionalTaskPropertyValues = OptionalProperties<
+  Task,
   | "customFieldValues"
   | "checklists"
   | "comments"
@@ -176,86 +162,7 @@ type OptionalTaskProperties = Extract<
   | "commits"
 >;
 
-type OptionalTimeEntryPropertyValues =
-  `${TimeEntry["objectType"]}.${OptionalTimeEntryProperties}`;
-type OptionalTimeEntryProperties = Extract<
-  keyof TimeEntry,
+type OptionalTimeEntryPropertyValues = OptionalProperties<
+  TimeEntry,
   "customFieldValues"
 >;
-
-//FIXME: extract optional properties from Objects via TS util types
-
-/*
-type includeProperties = Array<includeProperty>;
-type includeProperty = `${Object["objectType"]}.${keyof Object}`
-type Objects = [Attachment
-  , Backlog
-  , BacklogItem
-  , BacklogList
-  , Board
-  , BoardColumn
-  ,ChecklistItem];
-type Object =
-  | Attachment
-  | Backlog
-  | BacklogItem
-  | BacklogList
-  | Board
-  | BoardColumn
-  | ChecklistItem;
-
-type X = Object["objectType"];
-const M: includeProperty = "Attachment.fileName";
-*/
-//type X = "X";
-//type Y = `${Object}.${X}`;
-
-/*
-type X<T> = {
-  [Property in keyof T]: T[Property] extends NonNullable<T[Property]> ? never : Property;
-}
-
-type Y = X<ChecklistItem>;
-*/
-
-/*
-type X = keyof Object;
-type Y = ObtainKeys<Attachment, null>;
-const x: X = "url";
-
-type ObtainKeys<Obj, Type> = {
-  [Prop in keyof Obj]: Obj[Prop] extends Type ? Prop : never;
-}[keyof Obj];
-
-type Z2 = NonNullable<Attachment>;
-type Z = Exclude<Attachment, NonNullable<Attachment>>
-
-// -------------------
-
-type Optional<T> = T | null;
-
-type A = {
-  a: Optional<string>;
-  b: number;
-  c: null;
-}
-
-type B = ObtainKeys<A, null>
-*/
-
-type Null = Opaque<null, "Null">;
-
-type A = {
-  a: string | Null;
-};
-
-//type X = Omit<A["a"], Null>;
-/*
-type X<T> = {
-  [Property in keyof T]: T[Property] extends Omit<T[Property], null>
-    ? never
-    : Property;
-}[keyof T];
-
-type Z = X<Attachment>;
-*/
