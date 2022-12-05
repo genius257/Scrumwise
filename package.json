@@ -4,7 +4,7 @@
   "description": "A library for interacting with the Scrumwise API",
   "main": "index.js",
   "scripts": {
-    "test": "test-ts && jest",
+    "test": "npm run test-ts && jest",
     "test-ts": "tsc --noEmit",
     "code-coverage": "jest --coverage=true --coverageProvider=babel"
   },
