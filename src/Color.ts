@@ -1,0 +1,18 @@
+export type Color =
+  | "Red"
+  | "Light red"
+  | "Dark orange"
+  | "Orange"
+  | "Yellow"
+  | "Light green"
+  | "Green"
+  | "Dark green"
+  | "Light blue"
+  | "Blue"
+  | "Dark blue"
+  | "Purple"
+  | "Pink"
+  | "Light brown"
+  | "Dark brown"
+  | "Light gray"
+  | "Dark gray";
