@@ -15,7 +15,7 @@ export function assertDateString(value: string): asserts value is DateString {
   }
 }
 
-export function externalID(value: string): DateString {
+export function dateString(value: string): DateString {
   assertDateString(value);
   return value;
 }
