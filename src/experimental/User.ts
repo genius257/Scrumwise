@@ -1,3 +1,5 @@
+import { Opaque } from "../utils";
+
 export default class User {
   readonly id: UserId;
 
@@ -22,4 +24,4 @@ export default class User {
   }
 }
 
-export type UserId = string & { _guard: "user_id" };
+export type UserId = Opaque<string, "user_id">;
