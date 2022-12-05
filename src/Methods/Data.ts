@@ -70,7 +70,7 @@ type OptionalProperties<
   Keys extends Exclude<keyof Object, symbol>
 > = `${Object["objectType"]}.${Extract<keyof Object, Keys>}`;
 
-type IncludeProperties = Array<IncludeProperty>; //FIXME: would be nice if it could be indicated as unique, without doing too much ts check computation. Alternative is to make it an object where the keys are the string values.
+type IncludeProperties = Array<IncludeProperty>; //OPTIMIZE: would be nice if it could be indicated as unique, without doing too much ts check computation. Alternative is to make it an object where the keys are the string values.
 type IncludeProperty =
   | OptionalBacklogItemPropertyValues
   | OptionalDataPropertyValues
