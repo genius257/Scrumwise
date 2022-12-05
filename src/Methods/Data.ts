@@ -1,13 +1,7 @@
 import { Result } from "../Objects/Result";
 import { Data as DataObject } from "../Objects/Data";
 import { Error } from "../Objects/Error";
-import { Attachment } from "../Objects/Attachment";
-import { Backlog } from "../Objects/Backlog";
 import { BacklogItem } from "../Objects/BacklogItem";
-import { BacklogList } from "../Objects/BacklogList";
-import { Board } from "../Objects/Board";
-import { BoardColumn } from "../Objects/BoardColumn";
-import { ChecklistItem } from "../Objects/ChecklistItem";
 import { Opaque } from "../utils";
 import { File } from "../Objects/File";
 import { Message } from "../Objects/Message";
