@@ -56,11 +56,11 @@ export type BacklogItem = IObject & {
   releaseID: string | null;
   /** The status of the backlog item. */
   status: Status;
-  /** The date where the backlog item was set to status `To do`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
+  /** The date where the backlog item was set to status `To do`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
   toDoDate: Timestamp | null;
-  /** The date where the backlog item was set to status `In progress`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
+  /** The date where the backlog item was set to status `In progress`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
   inProgressDate: Timestamp | null;
-  /** The date where the backlog item was set to status `To test`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
+  /** The date where the backlog item was set to status `To test`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
   toTestDate: Timestamp | null;
   /** The date where the backlog item was set to status `Done`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the backlog item has not had this status or the date is not available. */
   doneDate: Timestamp | null;
@@ -115,22 +115,22 @@ export type BugState = "Open" | "Closed";
 export type Reproducible = "No" | "Sometimes" | "Always";
 
 export type Resolution =
-  | "Not enough information"
-  | "Cannot reproduce"
-  | "Not a bug"
+  | "Not enough information"
+  | "Cannot reproduce"
+  | "Not a bug"
   | "Duplicate"
   | "Postponed"
-  | "Won't fix"
+  | "Won't fix"
   | "Fixed";
 
 export type Status =
   | "New"
-  | "Ready for estimation"
-  | "Ready for sprint"
-  | "Assigned to sprint"
-  | "To do"
-  | "In progress"
-  | "To test"
+  | "Ready for estimation"
+  | "Ready for sprint"
+  | "Assigned to sprint"
+  | "To do"
+  | "In progress"
+  | "To test"
   | "Done"
-  | "Sprint completed"
+  | "Sprint completed"
   | "Released";

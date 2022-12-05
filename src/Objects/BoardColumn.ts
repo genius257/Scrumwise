@@ -19,4 +19,4 @@ export type BoardColumn = IObject & {
   status: Status;
 };
 
-export type Status = "To do" | "In progress" | "To test" | "Done";
+export type Status = "To do" | "In progress" | "To test" | "Done";

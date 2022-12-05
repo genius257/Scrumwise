@@ -35,11 +35,11 @@ export type Task = IObject & {
   creationDate: Timestamp | null;
   /** The status of the task. */
   status: Status;
-  /** The date where the task was set to status `To do`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
+  /** The date where the task was set to status `To do`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
   toDoDate: Timestamp | null;
-  /** The date where the task was set to status `In progress`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
+  /** The date where the task was set to status `In progress`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
   inProgressDate: Timestamp | null;
-  /** The date where the task was set to status `To test`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
+  /** The date where the task was set to status `To test`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
   toTestDate: Timestamp | null;
   /** The date where the task was set to status `Done`, as the number of milliseconds since January 1, 1970 00:00:00 GMT, or `null` if the task has not had this status or the date is not available. */
   doneDate: Timestamp | null;

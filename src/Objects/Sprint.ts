@@ -45,4 +45,4 @@ export type Sprint = IObject & {
   teamSprintParticipations: TeamSprintParticipation[];
 };
 
-export type Status = "In planning" | "In progress" | "Completed" | "Aborted";
+export type Status = "In planning" | "In progress" | "Completed" | "Aborted";

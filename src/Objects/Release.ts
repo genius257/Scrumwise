@@ -46,4 +46,4 @@ export type Release = IObject & {
   assignedBacklogItemIDs: string[];
 };
 
-export type Status = "In planning" | "In progress" | "Completed";
+export type Status = "In planning" | "In progress" | "Completed";

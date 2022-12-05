@@ -24,14 +24,14 @@ export type Relationship = IObject & {
 };
 
 export type Type =
-  | "Must be done after"
-  | "Must be done before"
-  | "Is dependent on"
-  | "Is dependency for"
-  | "Is blocked by"
-  | "Is blocking"
-  | "Is bug on"
-  | "Has bug"
-  | "Is duplicate of"
-  | "Has duplicate"
-  | "Is related to";
+  | "Must be done after"
+  | "Must be done before"
+  | "Is dependent on"
+  | "Is dependency for"
+  | "Is blocked by"
+  | "Is blocking"
+  | "Is bug on"
+  | "Has bug"
+  | "Is duplicate of"
+  | "Has duplicate"
+  | "Is related to";

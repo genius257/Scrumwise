@@ -25,8 +25,8 @@ export type CustomField = IObject & {
 };
 
 export type Type =
-  | "Text (single line)"
-  | "Text (multiple lines)"
+  | "Text (single line)"
+  | "Text (multiple lines)"
   | "Checkbox"
   | "Integer"
   | "Number"
@@ -37,7 +37,7 @@ export type Type =
   | "Release"
   | "Sprint"
   | "Dropdown"
-  | "Radio buttons"
+  | "Radio buttons"
   | "Checkboxes"
-  | "List (single selection)"
-  | "List (multiple selections)";
+  | "List (single selection)"
+  | "List (multiple selections)";
