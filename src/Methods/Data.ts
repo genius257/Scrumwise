@@ -140,7 +140,7 @@ type OptionalTimeEntryProperties = Extract<
   "customFieldValues"
 >;
 
-//FIXME: extract optional properties from Objects
+//FIXME: extract optional properties from Objects via TS util types
 
 /*
 type includeProperties = Array<includeProperty>;
