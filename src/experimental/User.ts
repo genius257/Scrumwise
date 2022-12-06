@@ -19,7 +19,7 @@ export default class User {
   }
 
   public static fromId(ref: UserId): User {
-    //
+    return new this(ref);
   }
 
   public static fromUnsafeId(ref: string): User {
