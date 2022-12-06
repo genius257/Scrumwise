@@ -2,7 +2,7 @@
   "name": "scrumwise",
   "version": "1.11.0",
   "description": "A library for interacting with the Scrumwise API",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "npm run test-ts && jest",
     "test-ts": "tsc --noEmit",
