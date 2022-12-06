@@ -3,6 +3,10 @@ import { Opaque } from "../utils";
 export default class User {
   readonly id: UserId;
 
+  public constructor(id: UserId) {
+    this.id = id;
+  }
+
   public static isValidId(value: string): value is UserId {
     //TODO: we could verify this agenst a list of valid users from backend.
     return /\d{3}-\d{4}-\d{3}/.test(value);
