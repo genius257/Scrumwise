@@ -17,7 +17,7 @@ export type RetrospectiveCard = IObject & {
   /** The id of the retrospective that contains the card. */
   retrospectiveID: string;
   /** The column number that the card is in, in the retrospective, starting from 1. */
-  columnNum: string; //FIXME: API doc says "string", but example data suggests "integer"
+  columnNum: number;
   /** The name of the card. */
   name: string;
   /** The description of the card, or `null` if none. */
