@@ -83,7 +83,7 @@ export type BacklogItem = IObject & {
   /** True if the backlog item is archived in the board that it is assigned to, false if not. */
   isArchivedInBoard: boolean;
   /** The ids of the persons that the backlog item is assigned to, empty if none. This can refer to `Person` or `DeletedPerson` objects. */
-  assignedPersonIDs: Array<Person | DeletedPerson>;
+  assignedPersonIDs: string[];
   /** The due date of the backlog item, as a string in the format YYYY-MM-DD, for example "2019-10-27", or `null` if none. */
   dueDate: DateString | null;
   /** The custom field values on the backlog item, empty if none, or `null` if not included. */
