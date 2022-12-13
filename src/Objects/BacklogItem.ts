@@ -8,8 +8,6 @@ import { Checklist } from "./Checklist";
 import { Comment } from "./Comment";
 import { Commit } from "./Commit";
 import { CustomFieldValue } from "./CustomFieldValue";
-import { DeletedPerson } from "./DeletedPerson";
-import { Person } from "./Person";
 import { Task } from "./Task";
 import { TimeEntry } from "./TimeEntry";
 
