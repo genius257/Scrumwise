@@ -70,8 +70,8 @@ type OptionalProperties<
   Keys extends Exclude<keyof Object, symbol>
 > = `${Object["objectType"]}.${Extract<keyof Object, Keys>}`;
 
-type IncludeProperties = Array<IncludeProperty>; //OPTIMIZE: would be nice if it could be indicated as unique, without doing too much ts check computation. Alternative is to make it an object where the keys are the string values.
-type IncludeProperty =
+export type IncludeProperties = Array<IncludeProperty>; //OPTIMIZE: would be nice if it could be indicated as unique, without doing too much ts check computation. Alternative is to make it an object where the keys are the string values.
+export type IncludeProperty =
   | OptionalBacklogItemPropertyValues
   | OptionalDataPropertyValues
   | OptionalFilePropertyValues
@@ -84,7 +84,7 @@ type IncludeProperty =
   | OptionalTaskPropertyValues
   | OptionalTimeEntryPropertyValues;
 
-type OptionalBacklogItemPropertyValues = OptionalProperties<
+export type OptionalBacklogItemPropertyValues = OptionalProperties<
   BacklogItem,
   | "customFieldValues"
   | "checklists"
@@ -95,19 +95,19 @@ type OptionalBacklogItemPropertyValues = OptionalProperties<
   | "tasks"
 >;
 
-type OptionalDataPropertyValues = OptionalProperties<
+export type OptionalDataPropertyValues = OptionalProperties<
   DataObject,
   "persons" | "deletedPersons"
 >;
 
-type OptionalFilePropertyValues = OptionalProperties<File, "comments">;
+export type OptionalFilePropertyValues = OptionalProperties<File, "comments">;
 
-type OptionalMessagePropertyValues = OptionalProperties<
+export type OptionalMessagePropertyValues = OptionalProperties<
   Message,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalProjectPropertyValues = OptionalProperties<
+export type OptionalProjectPropertyValues = OptionalProperties<
   Project,
   | "checklists"
   | "comments"
@@ -126,27 +126,27 @@ type OptionalProjectPropertyValues = OptionalProperties<
   | "relationships"
 >;
 
-type OptionalReleasePropertyValues = OptionalProperties<
+export type OptionalReleasePropertyValues = OptionalProperties<
   Release,
   "customFieldValues" | "checklists" | "comments" | "attachments"
 >;
 
-type OptionalRetrospectivePropertyValues = OptionalProperties<
+export type OptionalRetrospectivePropertyValues = OptionalProperties<
   Retrospective,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalRetrospectiveCardPropertyValues = OptionalProperties<
+export type OptionalRetrospectiveCardPropertyValues = OptionalProperties<
   RetrospectiveCard,
   "checklists" | "comments" | "attachments"
 >;
 
-type OptionalSprintPropertyValues = OptionalProperties<
+export type OptionalSprintPropertyValues = OptionalProperties<
   Sprint,
   "customFieldValues" | "checklists" | "comments" | "attachments"
 >;
 
-type OptionalTaskPropertyValues = OptionalProperties<
+export type OptionalTaskPropertyValues = OptionalProperties<
   Task,
   | "customFieldValues"
   | "checklists"
@@ -156,7 +156,7 @@ type OptionalTaskPropertyValues = OptionalProperties<
   | "commits"
 >;
 
-type OptionalTimeEntryPropertyValues = OptionalProperties<
+export type OptionalTimeEntryPropertyValues = OptionalProperties<
   TimeEntry,
   "customFieldValues"
 >;
