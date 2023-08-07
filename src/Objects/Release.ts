@@ -19,7 +19,7 @@ export type Release = IObject & {
   /** The description of the release, or `null` if none. */
   description: string | null;
   /** The link URL of the release, or `null` if none. */
-  link: string;
+  link: string | null;
   /** The start date of the release, as a string in the format YYYY-MM-DD, for example "2019-10-27", or `null` if none. */
   startDate: DateString | null;
   /** The planned release date of the release, as a string in the format YYYY-MM-DD, for example "2019-10-27", or `null` if none. */
